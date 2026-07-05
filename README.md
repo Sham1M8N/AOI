@@ -13,6 +13,12 @@ A full-stack e-commerce web app for computer parts and laptops, built with ASP.N
 **Product Details** — live stock display, add to cart
 ![Product Details](screenshots/productdetails.png)
 
+**Cart** — promo code applied, discount and total calculated live
+![Cart](screenshots/cart.png)
+
+**Admin Dashboard** — live counts pulled straight from the database
+![Admin Dashboard](screenshots/admindashboard.png)
+
 ## Features
 
 **Customer**
