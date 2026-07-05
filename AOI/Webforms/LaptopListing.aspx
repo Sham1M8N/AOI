@@ -26,8 +26,8 @@
             <ItemTemplate>
                 <div class="col-md-3 mb-4">
                     <div class="product-card text-center">
-                        <img src='<%# Eval("ImageUrl") %>' alt='<%# Eval("ProductName") %>' class="img-fluid product-img mb-3" />
-                        <h5><%# Eval("ProductName") %></h5>
+                        <img src='<%#: Eval("ImageUrl") %>' alt='<%#: Eval("ProductName") %>' class="img-fluid product-img mb-3" />
+                        <h5><%#: Eval("ProductName") %></h5>
                         <p class="text-muted">RM <%# Eval("Price", "{0:N2}") %></p>
                         <a href='ProductDetails.aspx?ProductId=<%# Eval("ProductId") %>' class="btn btn-primary">View Details</a>
                         <asp:LinkButton runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("ProductId") %>' CssClass="btn btn-outline-primary mt-2">Add to Cart</asp:LinkButton>

@@ -135,14 +135,22 @@ namespace AOI.Webforms
         {
             int productId = Convert.ToInt32(gvProducts.DataKeys[e.RowIndex].Value);
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            try
             {
-                string sql = "DELETE FROM Products WHERE ProductID=@id";
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@id", productId);
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    string sql = "DELETE FROM Products WHERE ProductID=@id";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@id", productId);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                litMessage.Text = "";
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                litMessage.Text = "<p class='text-danger'>Can't delete this product - it appears in existing orders.</p>";
             }
 
             BindProducts();

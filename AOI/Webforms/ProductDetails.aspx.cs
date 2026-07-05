@@ -76,8 +76,8 @@ namespace AOI.Webforms
                 }
 
                 DataRow row = dt.Rows[0];
-                litProductName.Text = row["ProductName"].ToString();
-                litCategory.Text = row["Category"].ToString();
+                litProductName.Text = Server.HtmlEncode(row["ProductName"].ToString());
+                litCategory.Text = Server.HtmlEncode(row["Category"].ToString());
                 litPrice.Text = Convert.ToDecimal(row["Price"]).ToString("N2");
                 imgProduct.ImageUrl = row["ImageUrl"].ToString();
 

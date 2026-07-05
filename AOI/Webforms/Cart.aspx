@@ -30,8 +30,8 @@
                     <ItemTemplate>
                         <tr>
                             <td class="d-flex align-items-center gap-2">
-                                <img src='<%# Eval("ImageUrl") %>' alt='<%# Eval("ProductName") %>' class="cart-img" />
-                                <span><%# Eval("ProductName") %></span>
+                                <img src='<%#: Eval("ImageUrl") %>' alt='<%#: Eval("ProductName") %>' class="cart-img" />
+                                <span><%#: Eval("ProductName") %></span>
                             </td>
                             <td>RM <%# Eval("Price", "{0:N2}") %></td>
                             <td style="width:120px">

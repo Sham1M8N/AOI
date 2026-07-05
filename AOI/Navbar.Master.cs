@@ -15,7 +15,7 @@ namespace AOI
             {
                 if (Session["Username"] != null)
                 {
-                    lblGreeting.Text = "Hello, " + Session["Username"].ToString();
+                    lblGreeting.Text = "Hello, " + Server.HtmlEncode(Session["Username"].ToString());
                     btnLogout.Visible = true;
                     Button1.Visible = false;  // Hide Login button
 

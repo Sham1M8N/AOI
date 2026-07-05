@@ -38,7 +38,24 @@ namespace AOI.Webforms
             if (e.CommandName == "AddToCart")
             {
                 int productId = Convert.ToInt32(e.CommandArgument);
-                AOI.Models.Cart.AddItem(Session, productId);
+
+                int stock;
+                string cs = ConfigurationManager.ConnectionStrings["AOIDb"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT Quantity FROM Products WHERE ProductID = @id", con);
+                    cmd.Parameters.AddWithValue("@id", productId);
+                    stock = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                int alreadyInCart = AOI.Models.Cart.GetLines(Session)
+                    .Where(l => l.ProductId == productId)
+                    .Sum(l => l.Quantity);
+
+                if (stock - alreadyInCart > 0)
+                    AOI.Models.Cart.AddItem(Session, productId);
+
                 LoadLaptops();
             }
         }

@@ -7,6 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h2>Manage Products</h2>
+    <asp:Literal ID="litMessage" runat="server" />
     <!-- Add New Product Form -->
     <asp:Panel ID="pnlAddProduct" runat="server" CssClass="mb-3">
         <asp:TextBox ID="txtProductName" runat="server" Placeholder="Product Name"></asp:TextBox>
