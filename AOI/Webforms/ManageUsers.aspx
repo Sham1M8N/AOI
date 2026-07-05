@@ -36,7 +36,7 @@
             </EditItemTemplate>
         </asp:TemplateField>
 
-        <!-- Reset Password Button -->
+        <%-- Reset Password Button --%>
         <asp:TemplateField HeaderText="Actions">
             <ItemTemplate>
                 <asp:Button ID="btnResetPassword" runat="server"
