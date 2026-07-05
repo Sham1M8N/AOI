@@ -1,0 +1,16 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# NuGet
+packages/
+*.nupkg
+
+# Local database (contains local test data / password hashes - don't publish)
+AOI/App_Data/*.mdf
+AOI/App_Data/*.ldf

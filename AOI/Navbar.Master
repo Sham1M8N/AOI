@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.master.cs" Inherits="AOI.Navbar" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title>AOI Web</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="Style/StyleSheet1.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+
+<body>
+    <form id="form1" runat="server" class="d-flex flex-column min-vh-100">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="/Webforms/Homepage.aspx">
+                    <img src="/Image/LogoAOIblack.jpg" alt="AOI Logo" height="40" class="d-inline-block align-text-top" />
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/Webforms/Homepage.aspx">Home</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/Webforms/ProductListing.aspx">Product</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="/Webforms/Cart.aspx">
+                                <i class="bi bi-cart3"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    id="cartItemCount" runat="server">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <asp:Button ID="Button1" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
+                        </li>
+
+                        <li class="nav-item ms-4 d-flex align-items-center">
+                            <asp:Label ID="lblGreeting" runat="server" Text="Hello, Guest!" CssClass="navbar-text text-white mb-0 my-auto"></asp:Label>
+                        </li>
+
+                        <li class="nav-item ms-2">
+                            <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-danger" OnClick="btnLogout_Click" Visible="false" />
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="adminLink" runat="server" NavigateUrl="/Webforms/AdminDashboard.aspx" CssClass="nav-link">Admin Panel</asp:HyperLink>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container mt-4 flex-grow-1">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        </div>
+
+    </form>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-3 mt-auto navbar-custom">
+        <div class="container text-center">
+            <a href="/Webforms/Homepage.aspx">
+                <img src="/Image/LogoAOInobg.png" alt="AOI Logo" height="40" class="d-inline-block align-text-top mb-2" /></a>
+            <ul class="list-inline mb-3">
+                <li class="list-inline-item"><a href="#" class="text-light">Terms & Conditions</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Contact Us</a></li>
+                <li class="list-inline-item"><a href="#" class="text-light">Cancellation and Refund Policy</a></li>
+            </ul>
+
+            <div class="small">© 2025 AOI - All rights reserved | Designed By: AOI</div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
